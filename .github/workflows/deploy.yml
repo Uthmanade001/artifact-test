@@ -1,0 +1,26 @@
+name: Deploy Test
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Make deploy.sh executable
+        run: chmod +x deploy.sh
+
+      - name: Run deploy
+        run: ./deploy.sh
+
+      - name: Upload dist folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployed-files
+          path: dist/
