@@ -1,4 +1,6 @@
 #!/bin/bash
 
-mkdir -p dist
-echo "test deploy file" > dist/test.txt
+echo "📦 Starting deployment simulation..."
+mkdir -p staging
+cp *.sh staging/
+echo "✅ Deployed to staging!"
