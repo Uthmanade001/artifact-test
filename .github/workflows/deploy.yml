@@ -1,4 +1,4 @@
-name: Deploy Test
+name: CD Simulation
 
 on:
   push:
@@ -10,17 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Make deploy.sh executable
+      - name: Make scripts executable
         run: chmod +x deploy.sh
 
-      - name: Run deploy
+      - name: Run deployment script
         run: ./deploy.sh
 
-      - name: Upload dist folder
-        uses: actions/upload-artifact@v3
-        with:
-          name: deployed-files
-          path: dist/
