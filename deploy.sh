@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "🚀 Starting deployment..."
+echo "🚀 Starting deployment.."
 # simulate failure randomly
 if (( RANDOM % 2 )); then
   echo "❌ Deployment failed!"
