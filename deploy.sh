@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "🚀 Starting deployment..."
-echo "❌ Forced failure!"
+echo "❌ Forced failure!.."
 exit 1
 
