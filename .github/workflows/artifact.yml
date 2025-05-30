@@ -16,7 +16,7 @@ jobs:
         run: echo "This is my daily backup report" > report.txt
 
       - name: Upload report.txt
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: daily-report
           path: report.txt
