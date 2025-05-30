@@ -1,0 +1,27 @@
+name: Deploy with Rollback
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Make script executable
+        run: chmod +x deploy.sh
+
+      - name: Try to deploy
+        id: deploy
+        run: |
+          ./deploy.sh
+
+      - name: Rollback if failed
+        if: failure()
+        run: |
+          echo "⚠️ Deployment failed. Rolling back to previous commit.."
+          git reset --hard HEAD~1
+          git push --force
